@@ -1,0 +1,14 @@
+!.gitignore
+cmd/*
+!cmd/main.go
+main
+/public
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+.env
+*.test
+*.out
+go.work
