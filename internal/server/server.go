@@ -40,8 +40,10 @@ func (s *Server) Run() {
 	middleware := middleware.New()
 
 	srv := &http.Server{
-		Addr:    fmt.Sprintf(":%s", s.c.APP_PORT),
-		Handler: middleware.LoggingMiddleware(s.router),
+		Addr:         fmt.Sprintf(":%s", s.c.APP_PORT),
+		ReadTimeout:  5 * time.Second,
+		WriteTimeout: 10 * time.Second,
+		Handler:      middleware.LoggingMiddleware(s.router),
 	}
 
 	go func() {
